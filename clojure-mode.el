@@ -1603,9 +1603,9 @@ https://docs.cider.mx/cider/indent_spec.html e.g. (2 :form
 For example: (put-clojure-indent 'defrecord '(2 :form :form (1))."
   (unless (and (listp exp)
                (= 3 (length exp))
-               (eq 'put-clojure-indent (car exp))
-               (clojure--maybe-quoted-symbol-p (cadr exp))
-               (clojure--valid-indent-spec-p (caddr exp)))
+               (eq 'put-clojure-indent (nth 0 exp))
+               (clojure--maybe-quoted-symbol-p (nth 1 exp))
+               (clojure--valid-indent-spec-p (nth 2 exp)))
     (error "Unrecognized put-clojure-indent call: %s" exp))
   t)
 
